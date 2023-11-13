@@ -1,0 +1,422 @@
+{
+    "type": "engine:gameDetailsScreen",
+    "skin": "engine:mainMenu",
+    "contents": {
+        "type": "relativeLayout",
+        "contents": [
+            {
+                "type": "UILabel",
+                "id": "title",
+                "family": "subtitle",
+                "layoutInfo": {
+                    "height": 30,
+                    "position-horizontal-center": {},
+                    "position-top": {
+                       "target": "TOP",
+                       "offset": 30
+                    }
+                }
+            },
+            {
+                "type": "UIBox",
+                "id": "container",
+                "layoutInfo": {
+                    "width": 1016,
+                    "position-horizontal-center": {},
+                    "position-top": {
+                        "target": "BOTTOM",
+                        "offset": 23,
+                        "widget": "title"
+                    },
+                    "position-bottom": {
+                        "target": "TOP",
+                        "widget": "actionButtons",
+                        "offset": 6
+                    }
+                }
+            },
+            {
+                "id": "body",
+                "type": "ColumnLayout",
+                "columns": 2,
+                "family": "option-grid",
+                "column-widths": [
+                    0.5,
+                    0.5
+                ],
+                "verticalSpacing": 8,
+                "horizontalSpacing": 4,
+                "layoutInfo": {
+                    "width": 1000,
+                    "position-horizontal-center": {},
+                    "position-top": {
+                        "target": "BOTTOM",
+                        "widget": "title",
+                        "offset": 32
+                    },
+                    "position-bottom": {
+                        "target": "TOP",
+                        "widget": "actionButtons",
+                        "offset": 14
+                    }
+                },
+                "contents": [
+                    {
+                        "id": "leftSide",
+                        "type":"RelativeLayout",
+                        "layoutInfo": {
+                            "use-content-height": true,
+                            "position-horizontal-center": {},
+                            "position-top": {
+                                "target": "TOP"
+                            }
+                        },
+                        "contents": [
+                            {
+                                "type": "UIImageSlideshow",
+                                "id": "preview",
+                                "skin": "framed_image",
+                                "layoutInfo": {
+                                    "position-horizontal-center": {},
+                                    "position-top": {
+                                        "target": "TOP"
+                                    },
+                                    "height": 280
+                                }
+                            },
+                            {
+                                "type": "RowLayout",
+                                "id": "sliderActions",
+                                "horizontalSpacing": 8,
+                                "contents": [
+                                    {
+                                        "type": "UIButton",
+                                        "text": "Prev",
+                                        "id": "slideLeft"
+                                    },
+                                    {
+                                        "type": "UIButton",
+                                        "text": "Pause",
+                                        "id": "slideStop"
+                                    },
+                                    {
+                                        "type": "UIButton",
+                                        "text": "Next",
+                                        "id": "slideRight"
+                                    }
+                                ],
+                                "layoutInfo": {
+                                    "width": 400,
+                                    "height": 32,
+                                    "position-horizontal-center": {},
+                                    "position-bottom": {
+                                        "target": "BOTTOM",
+                                        "widget": "preview",
+                                        "offset": 3
+                                    }
+                                }
+                            },
+                            {
+                                "type": "ScrollableArea",
+                                "content": {
+                                    "type": "UIText",
+                                    "multiline": true,
+                                    "id": "generalInfo"
+                                },
+                                "layoutInfo": {
+                                    "position-top": {
+                                        "target": "BOTTOM",
+                                        "widget": "preview",
+                                        "offset": 3
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "rightSide",
+                        "type":"RelativeLayout",
+                        "layoutInfo": {
+                            "use-content-height": true,
+                            "position-horizontal-center": {},
+                            "position-top": {
+                                "target": "TOP"
+                            }
+                        },
+                        "contents": [
+                            {
+                                "type": "UITabBox",
+                                "skin": "solid",
+                                "id": "tabs",
+                                "currentTab": 0,
+                                "layoutInfo": {
+                                    "position-horizontal-center": {},
+                                    "position-top": {
+                                        "target": "TOP"
+                                    },
+                                    "position-bottom": {
+                                        "target": "BOTTOM",
+                                        "offset": 200
+                                    }
+                                },
+                                "contents": [
+                                    {
+                                        "type":"RelativeLayout",
+                                        "id": "page1",
+                                        "layoutInfo": {
+                                            "use-content-height": true,
+                                            "position-horizontal-center": {},
+                                            "position-top": {
+                                                "target": "TOP"
+                                            }
+                                        },
+                                        "contents": [
+                                            {
+                                                "type": "ScrollableArea",
+                                                "id": "baseInfo",
+                                                "layoutInfo": {
+                                                    "position-top": {
+                                                        "target": "TOP"
+                                                    }
+                                                },
+                                                "content":  {
+                                                    "type":"RelativeLayout",
+                                                    "layoutInfo": {
+                                                        "use-content-height": true,
+                                                        "position-horizontal-center": {},
+                                                        "position-top": {
+                                                            "target": "TOP"
+                                                        }
+                                                    },
+                                                    "contents": [
+                                                        {
+                                                            "type": "ScrollableArea",
+                                                            "id": "moduleList",
+                                                            "family": "module-list",
+                                                            "skin": "mainmenu",
+                                                            "content": {
+                                                                "type": "ColumnLayout",
+                                                                "columns": 1,
+                                                                "layoutInfo": {
+                                                                    "position-top": {
+                                                                        "target": "TOP"
+                                                                    }
+                                                                },
+                                                                "contents": [
+                                                                    {
+                                                                        "type": "UILabel",
+                                                                        "family": "subheading",
+                                                                        "text": "${engine:menu#game-details-modules}"
+                                                                    },
+                                                                    {
+                                                                        "type": "UIList",
+                                                                        "id": "modules"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "layoutInfo": {
+                                                                "position-top": {
+                                                                    "target": "TOP"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type":"RelativeLayout",
+                                        "id": "page2",
+                                        "layoutInfo": {
+                                            "use-content-height": true,
+                                            "position-horizontal-center": {},
+                                            "position-top": {
+                                                "target": "TOP"
+                                            }
+                                        },
+                                        "contents": [
+                                            {
+                                                "type": "ScrollableArea",
+                                                "skin": "mainmenu",
+                                                "family": "biome-list",
+                                                "content": {
+                                                    "type": "ColumnLayout",
+                                                    "columns": 1,
+                                                    "layoutInfo": {
+                                                    },
+                                                    "contents": [
+                                                        {
+                                                            "type": "UILabel",
+                                                            "family": "subheading",
+                                                            "text": "${engine:menu#game-details-worlds}"
+                                                        },
+                                                        {
+                                                            "type": "UIList",
+                                                            "id": "worlds"
+                                                        },
+                                                        {
+                                                            "type": "UILabel",
+                                                            "family": "subheading",
+                                                            "text": "${engine:menu#game-details-biomes}"
+                                                        },
+                                                        {
+                                                            "type": "UIList",
+                                                            "id": "biomes"
+                                                        }
+                                                    ]
+                                                },
+                                                "layoutInfo": {
+                                                    "position-top": {
+                                                        "target": "TOP"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type":"RelativeLayout",
+                                        "id": "page3",
+                                        "layoutInfo": {
+                                            "use-content-height": true,
+                                            "position-horizontal-center": {},
+                                            "position-top": {
+                                                "target": "TOP"
+                                            }
+                                        },
+                                        "contents": [
+                                            {
+                                                "type": "ScrollableArea",
+                                                "content": {
+                                                    "type": "ColumnLayout",
+                                                    "columns": 1,
+                                                    "layoutInfo": {
+                                                    },
+                                                    "contents": [
+                                                        {
+                                                            "type": "UILabel",
+                                                            "family": "subheading",
+                                                            "text": "${engine:menu#game-details-blocks}"
+                                                        },
+                                                        {
+                                                            "type": "UIList",
+                                                            "id": "blocks"
+                                                        }
+                                                    ]
+                                                },
+                                                "layoutInfo": {
+                                                    "position-top": {
+                                                        "target": "TOP"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "buttons": [
+                                    {
+                                        "type": "UIButton",
+                                        "text": "${engine:menu#game-details-modules}",
+                                        "id": "button1"
+                                    },
+                                    {
+                                        "type": "UIButton",
+                                        "text": "${engine:menu#game-details-worlds-and-biomes}",
+                                        "id": "button2"
+                                    },
+                                    {
+                                        "type": "UIButton",
+                                        "text": "${engine:menu#game-details-blocks}",
+                                        "id": "button3"
+                                    }
+                                ]
+                            },
+                            {
+                                "type":"RelativeLayout",
+                                "id": "additionalInfo",
+                                "layoutInfo": {
+                                    "height": 200,
+                                    "position-horizontal-center": {},
+                                    "position-bottom": {
+                                        "target": "BOTTOM"
+                                    }
+                                },
+                                "contents": [
+                                    {
+                                        "type": "UILabel",
+                                        "id": "descriptionTitle",
+                                        "layoutInfo": {
+                                            "height": 21,
+                                            "use-content-width": true,
+                                            "position-horizontal-center": {},
+                                            "position-top": {
+                                                "target": "TOP"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "ScrollableArea",
+                                        "id": "descriptionContainer",
+                                        "content": {
+                                            "type": "UIText",
+                                            "multiline": true,
+                                            "id": "description"
+                                        },
+                                        "layoutInfo": {
+                                            "position-top": {
+                                                "target": "BOTTOM",
+                                                "widget": "descriptionTitle"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "RowLayout",
+                "id": "actionButtons",
+                "horizontalSpacing": 8,
+                "contents": [
+                    {
+                        "type": "UIButton",
+                        "text": "${engine:menu#game-details-show-errors}",
+                        "id": "showErrors",
+                        "enabled": false
+                    },
+                    {
+                        "type": "UIButton",
+                        "text": "${engine:menu#game-details-module-details}",
+                        "id": "openModuleDetails"
+                    }
+                ],
+                "layoutInfo": {
+                    "width": 400,
+                    "height": 32,
+                    "position-horizontal-center": {},
+                    "position-bottom": {
+                        "target": "TOP",
+                        "widget": "close",
+                        "offset": 16
+                    }
+                }
+            },
+            {
+                "type": "UIButton",
+                "text": "${engine:menu#back}",
+                "id": "close",
+                "layoutInfo": {
+                    "width": 128,
+                    "height": 32,
+                    "position-horizontal-center": {},
+                    "position-bottom": {
+                        "target": "BOTTOM",
+                        "offset": 48
+                    }
+                }
+            }
+        ]
+    }
+}

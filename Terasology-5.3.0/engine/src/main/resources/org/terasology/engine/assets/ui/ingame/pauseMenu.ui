@@ -1,0 +1,64 @@
+{
+    "type": "pauseMenu",
+    "skin": "pauseMenu",
+    "contents": {
+        "type": "relativeLayout",
+        "contents": [
+            {
+                "type": "columnLayout",
+                "verticalSpacing": 8,
+                "contents": [
+                    {
+                        "type": "UILabel",
+                        "text": "${engine:menu#ingame-menu-title}"
+                    },
+                    {
+                        "type": "UISpace",
+                        "size": [
+                            1,
+                            8
+                        ]
+                    },
+                    {
+                        "type": "UIButton",
+                        "id": "close",
+                        "text": "${engine:menu#back}"
+                    },
+                    {
+                        "type": "UISpace",
+                        "size": [
+                            1,
+                            16
+                        ]
+                    },
+                    {
+                       "type": "UIButton",
+                       "id": "extra",
+                       "text": "${engine:menu#extras-label}"
+                    },
+                    {
+                        "type": "UIButton",
+                        "id": "settings",
+                        "text": "${engine:menu#game-settings}"
+                    },
+                    {
+                        "type": "UIButton",
+                        "id": "mainMenu",
+                        "text": "${engine:menu#return-main-menu}"
+                    },
+                    {
+                        "type": "UIButton",
+                        "id": "exit",
+                        "text": "${engine:menu#exit-game}"
+                    }
+                ],
+                "layoutInfo": {
+                    "use-content-width": true,
+                    "use-content-height": true,
+                    "position-horizontal-center": {},
+                    "position-vertical-center": {}
+                }
+            },
+        ]
+    }
+}

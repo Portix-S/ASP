@@ -1,0 +1,130 @@
+syntax = "proto3";
+option java_package = "org.terasology.protobuf";
+option java_outer_classname = "EntityData";
+option optimize_for = SPEED;
+
+message Value {
+    repeated double double = 1;
+    repeated float float = 2;
+    repeated sint32 integer = 3;
+    repeated sint64 long = 4;
+    repeated bool boolean = 5;
+    repeated string string = 6;
+    optional bytes bytes = 7;
+    repeated Value value = 8;
+    repeated NameValue name_value = 9; // For string maps
+}
+
+
+message NameValue {
+    optional string name = 1;
+    optional Value value = 2;
+    optional int32 name_index = 3;
+}
+
+message Component {
+    optional int32 type_index = 1; // Index of the type, if contained in a world with component_classes table
+    optional string type = 15; // The name of the type. Not needed if index provided
+    repeated NameValue field = 2;
+
+}
+
+message Entity {
+    optional int64 id = 1;
+    repeated Component component = 2;
+    repeated int32 removed_component_index = 3;
+    optional string parent_prefab = 4;
+    optional bool alwaysRelevant = 5;
+    optional int64 owner = 6;
+    repeated string removed_component = 15;
+
+    enum Scope {
+        GLOBAL = 0;
+        SECTOR = 1;
+        CHUNK = 2;
+    }
+    optional Scope scope = 7;
+}
+
+message PackedEntity {
+    optional int64 id = 1;
+    repeated int32 componentId = 2;
+    optional bytes componentFieldCounts = 3;
+    optional bytes fieldIds = 4;
+    repeated Value fieldValue = 5;
+    repeated int32 removedComponent = 6;
+    optional int64 owner = 7;
+    optional string parentPrefabUri = 16;
+}
+
+message Prefab {
+    optional int32 name_index = 1;
+    repeated Component component = 2;
+    optional bool persisted = 4;
+    repeated string removedComponent = 5;
+    optional bool alwaysRelevant = 6;
+    optional string name = 15;
+    optional string parent_name = 16;
+}
+
+message Event {
+    optional int32 type = 1;
+    optional bytes fieldIds = 2;
+    repeated Value fieldValue = 3;
+}
+
+message EntityStore {
+    repeated Entity entity = 1;
+    repeated string component_class = 3;
+
+    // These are paired, with entityNamed referencing entity id
+    repeated string entityName = 2;
+    repeated int64  entityNamed = 4;
+
+}
+
+enum StoreType {
+    NoneType                  = 0;
+    PlayerStoreType           = 1;
+    ChunkStoreType            = 2;
+}
+
+message PlayerStore {
+    optional EntityStore store = 1;
+    optional float characterPosX = 15;
+    optional float characterPosY = 16;
+    optional float characterPosZ = 17;
+    optional bool hasCharacter = 18;
+}
+
+message ChunkStore {
+    optional EntityStore store       = 1;
+    optional sint32    x             = 2;
+    optional sint32    y             = 3;
+    optional sint32    z             = 4;
+
+    optional RunLengthEncoding8 deprecated_data_6 = 11;
+    optional RunLengthEncoding16 deprecated_data_7 = 12;
+
+    optional RunLengthEncoding16 block_data = 10;
+    repeated RunLengthEncoding16 extra_data = 13;
+}
+
+message RunLengthEncoding16 {
+    repeated sint32 runLengths = 1;
+    repeated sint32 values = 2;
+}
+
+message RunLengthEncoding8 {
+    repeated sint32 runLengths = 1;
+    optional bytes values = 2;
+}
+
+message GlobalStore {
+    repeated Entity entity = 1;
+    repeated Prefab prefab = 2;
+    repeated string component_class = 3;
+
+    optional int64 next_entity_id = 16;
+    repeated string prefab_name = 18;
+}

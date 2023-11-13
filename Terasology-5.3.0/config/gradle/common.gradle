@@ -1,0 +1,48 @@
+// Copyright 2021 The Terasology Foundation
+// SPDX-License-Identifier: Apache-2.0
+
+// language
+apply plugin: 'java'
+
+// IDEs
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+apply plugin: 'terasology-repositories'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+}
+
+javadoc.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+task sourceJar(type: Jar) {
+    description = "Create a JAR with all sources"
+    from sourceSets.main.allSource
+    from sourceSets.test.allSource
+    archiveClassifier = 'sources'
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    description = "Create a JAR with the JavaDoc for the java sources"
+    from javadoc.destinationDir
+    archiveClassifier = 'javadoc'
+}
+
+tasks.javadoc {
+    // Disable doclint messages about missing "@param" or "@return" tags.
+    options.addBooleanOption("Xdoclint:all,-missing", true)
+
+    // Omit package qualifiers for some of the most common types.
+    options.noQualifiers(
+            "java.lang", "java.util.*", "org.joml",
+            "org.terasology.engine.entitySystem.entity"
+    )
+
+    // TODO: Temporary until javadoc has been fixed for Java 8 everywhere
+    failOnError = false
+}

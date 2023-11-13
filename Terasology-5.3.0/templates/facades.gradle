@@ -1,0 +1,32 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'checkstyle'
+apply plugin: 'pmd'
+
+// Same repository configuration as root project
+repositories {
+    google()
+    mavenCentral()
+
+    // MovingBlocks Artifactory instance for libs not readily available elsewhere plus our own libs
+    maven {
+        name "Terasology Artifactory"
+        url "http://artifactory.terasology.org/artifactory/repo"
+    }
+}
+
+dependencies {
+    compile project(':engine')
+}
+
+checkstyle {
+    ignoreFailures = true
+    configFile = new File(rootDir, 'config/checkstyle/checkstyle.xml')
+    configProperties.samedir = checkstyle.configFile.parentFile
+}
+
+pmd {
+    ignoreFailures = true
+    ruleSetFiles = files("$rootDir/config/pmd/pmd.xml")
+}

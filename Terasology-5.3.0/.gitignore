@@ -1,0 +1,105 @@
+# Ignore general
+*~
+._*
+*.bak
+/.*
+
+# Except this stuff
+!.gitattributes
+!.gitignore
+!.github
+
+# Ignore generated code
+/engine/src/jmh/generated
+
+# Ignore subdirs with their own Git roots. PC Facade and Core module are bundled with the main repo.
+extensions
+/facades/*
+!/facades/PC
+!/facades/TeraEd
+!/facades/subprojects.gradle
+/modules/*
+!/modules/subprojects.gradle
+/metas/*
+!/metas/subprojects.gradle
+/libs/*
+!/libs/subprojects.gradle
+
+# Ignore Gradle and some transient project config files (template versions available under /templates)
+build/
+/gradle.properties
+/override.cfg
+
+# Do share some IntelliJ settings (see .idea/.gitignore for specifics)
+!/.idea
+# But not build outputs, or things it will regenerate when it syncs with gradle.
+out/
+/*.iws
+/projectFilesBackup*
+*.iml
+
+# Ignore Eclipse
+.checkstyle
+.project
+.classpath
+.settings/
+bin/
+facades/PC/Terasology.launch
+
+# Ignore Linux
+*.directory
+
+#Ignore OSX
+Icon
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.DocumentRevisions-V100
+.TemporaryItems
+.Trashes
+.dbfseventsd
+.fseventsd
+.VolumeIcon.icns
+
+#Ignore Windows
+ehthumbs.db
+Thumbs.db
+
+# Ignore Terasology output
+*.log
+/saves/
+/recordings/
+/configs/
+/screenshots/
+/logs/
+/cachedModules/
+/terasology-server/
+/terasology-2ndclient/
+/terasology-3rdclient/
+config.cfg
+entityDump.txt
+*entityDump*.json
+nuiEditorAutosave.json
+
+# Historical Output
+/SAVED_WORLDS/
+/worlds/
+/screens/
+/unittesthome/
+
+# Ignore stuff we extract for use with Terasology
+/natives/
+config/metrics/
+
+# Ignore API files
+API_file.txt
+New_API_file.txt
+
+# Ignore Whitelist and Blacklist files
+whitelist.json
+blacklist.json
+
+# Profiling related
+terasology.jfr
+local.properties
+*.hprof

@@ -1,0 +1,155 @@
+{
+  "type": "NewGameScreen",
+  "skin": "engine:mainMenu",
+  "contents": {
+    "type": "relativeLayout",
+    "contents": [
+      {
+        "type": "UILabel",
+        "id": "title",
+        "family": "title",
+        "text": "${engine:menu#new-game-title}",
+        "layoutInfo": {
+          "height": 48,
+          "position-horizontal-center": {},
+          "position-top": {
+            "target": "TOP",
+            "offset": 48
+          }
+        }
+      },
+      {
+        "type": "UILabel",
+        "id": "gameTypeTitle",
+        "family": "subtitle",
+        "text": "${engine:menu#select-singleplayer-game-sub-title}",
+        "layoutInfo": {
+          "height": 30,
+          "position-horizontal-center": {},
+          "position-top": {
+            "target": "BOTTOM",
+            "widget": "title"
+          }
+        }
+      },
+      {
+        "type": "UIBox",
+        "id":"mainBox",
+        "content": {
+          "type": "ColumnLayout",
+          "columns": 1,
+          "verticalSpacing": 4,
+          "horizontalSpacing": 4,
+          "contents": [
+            {
+              "type": "UILabel",
+              "text": "${engine:menu#game-name}"
+            },
+            {
+              "type": "UIText",
+              "id": "gameName"
+            },
+            {
+              "type": "UISpace",
+              "size": [
+                1,
+                16
+              ]
+            },
+            {
+              "type": "UILabel",
+              "text": "${engine:menu#gameplay}"
+            },
+            {
+              "type": "UIDropdownScrollable",
+              "id": "gameplay",
+              "layoutInfo": {
+                "relativeWidth": 0.7
+              }
+            },
+            {
+              "type": "UISpace",
+              "size": [
+                1,
+                16
+              ]
+            },
+            {
+              "type": "UILabel",
+              "id": "gameplayDescription"
+            }
+          ]
+        },
+        "layoutInfo": {
+          "width": 500,
+          "use-content-height": true,
+          "position-horizontal-center": {},
+          "position-vertical-center": {}
+        }
+      },
+      {
+        "type": "RowLayout",
+        "id": "actionsRow",
+        "horizontalSpacing": 32,
+        "contents": [
+          {
+            "type": "UIButton",
+            "text": "${engine:menu#return-main-menu}",
+            "id": "mainMenu"
+          },
+          {
+            "type": "UIButton",
+            "text": "${engine:menu#start-playing}",
+            "id": "play"
+          }
+        ],
+        "layoutInfo": {
+          "width": 272,
+          "height": 80,
+          "position-horizontal-center": {},
+          "position-top": {
+            "target": "BOTTOM",
+            "widget": "mainBox",
+            "offset": 16
+          }
+        }
+      },
+      {
+        "type": "UIButton",
+        "text": "${engine:menu#back}",
+        "id": "close",
+        "layoutInfo": {
+          "width": 120,
+          "height": 80,
+          "position-vertical-center": {
+            "target": "CENTER",
+            "widget": "mainBox"
+          },
+          "position-right": {
+            "target": "LEFT",
+            "widget": "mainBox",
+            "offset": 16
+          }
+        }
+      },
+      {
+        "type": "UIButton",
+        "text": "${engine:menu#advanced}",
+        "id": "advancedSetup",
+        "layoutInfo": {
+          "width": 120,
+          "height": 80,
+          "position-vertical-center": {
+            "target": "CENTER",
+            "widget": "mainBox"
+          },
+          "position-left": {
+            "target": "RIGHT",
+            "widget": "mainBox",
+            "offset": 16
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,83 @@
+{
+    "type": "debugOverlay",
+    "skin": "debugOverlay",
+    "contents": {
+        "type": "relativeLayout",
+        "contents": [
+            {
+                "type": "ColumnLayout",
+                "contents": [
+                    {
+                        "type": "UILabel",
+                        "id": "debugLine1"
+                    },
+                    {
+                        "type": "UILabel",
+                        "id": "debugLine2"
+                    },
+                    {
+                        "type": "UILabel",
+                        "id": "debugLine3"
+                    },
+                    {
+                        "type": "UILabel",
+                        "id": "debugLine4"
+                    },
+                    {
+                        "type": "UILabel",
+                        "id": "metrics"
+                    },
+                    {
+                        "type": "UILabel",
+                        "id": "debugInfo"
+                    }
+                ],
+                "layoutInfo": {
+                    "use-content-height": true,
+                    "position-horizontal-center": {},
+                    "position-vertical-top": {}
+                }
+            },
+            {
+                "type": "UILabel",
+                "id": "saveStatusLabel",
+                "layoutInfo": {
+                    "use-content-width": true,
+                    "use-content-height": true,
+                    "position-top": {},
+                    "position-right": {
+                        "offset": 8
+                    }
+                }
+            },
+            {
+                     "type": "UILabel",
+                     "id": "wireframeMode",
+                     "layoutInfo": {
+                     "use-content-width": true,
+                     "use-content-height": true,
+                     "position-bottom": {
+                         "offset": 5
+                     },
+                     "position-right": {
+                         "offset": 8
+                     }
+                }
+            },
+            {
+                     "type": "UILabel",
+                     "id": "chunkBBRenderMode",
+                     "layoutInfo": {
+                     "use-content-width": true,
+                     "use-content-height": true,
+                     "position-right": {
+                         "offset": 8
+                     },
+                     "position-bottom": {
+                         "offset": 20
+                     }
+                }
+            }
+        ]
+    }
+}
