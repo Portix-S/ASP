@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<ns2:softwareSystem xmlns:ns2="http://www.hello2morrow.com/sonargraph/core" id="e0fbe00e54d61c5d0ebb2e35262809bc" version="13.3.0.826">
+	<description></description>
+	<module xmlns:ns4="http://www.hello2morrow.com/sonargraph/languageprovider/java" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns4:xsdJavaModule" name="ModuloTerasology" id="38a4a5ae0c0d2ebfc4f5ac1777bfd922" language="Java">
+		<description></description>
+		<rootPath name="."></rootPath>
+		<rootPath name="./build-logic/build/classes/kotlin/main"></rootPath>
+		<rootPath xsi:type="ns4:xsdSourceRootPath" name="./build-logic/build/generated-sources/kotlin-dsl-accessors/kotlin"></rootPath>
+		<rootPath xsi:type="ns4:xsdSourceRootPath" name="./build-logic/build/generated-sources/kotlin-dsl-external-plugin-spec-builders/kotlin"></rootPath>
+		<rootPath name="./build-logic/build/kotlin-dsl/plugins-blocks/compiled"></rootPath>
+		<rootPath xsi:type="ns4:xsdSourceRootPath" name="./build-logic/src/main/kotlin"></rootPath>
+		<rootPath name="./engine-tests/build/classes"></rootPath>
+		<rootPath name="./engine-tests/build/testClasses"></rootPath>
+		<rootPath xsi:type="ns4:xsdSourceRootPath" name="./engine-tests/src/main/java"></rootPath>
+		<rootPath xsi:type="ns4:xsdSourceRootPath" name="./engine-tests/src/test/java"></rootPath>
+		<rootPath name="./engine/build/classes"></rootPath>
+		<rootPath name="./engine/build/classes/java/jmh"></rootPath>
+		<rootPath xsi:type="ns4:xsdSourceRootPath" name="./engine/build/generated/source/proto/main/java"></rootPath>
+		<rootPath xsi:type="ns4:xsdSourceRootPath" name="./engine/build/generated/sources/annotationProcessor/java/jmh"></rootPath>
+		<rootPath xsi:type="ns4:xsdSourceRootPath" name="./engine/src/jmh/java"></rootPath>
+		<rootPath xsi:type="ns4:xsdSourceRootPath" name="./engine/src/main/java"></rootPath>
+		<rootPath xsi:type="ns4:xsdSourceRootPath" name="./facades/PC/src/main/java"></rootPath>
+		<rootPath xsi:type="ns4:xsdSourceRootPath" name="./facades/PC/src/test/java"></rootPath>
+		<rootPath xsi:type="ns4:xsdSourceRootPath" name="./facades/TeraEd/src/main/java"></rootPath>
+		<rootPath name="./subsystems/DiscordRPC/build/classes"></rootPath>
+		<rootPath xsi:type="ns4:xsdSourceRootPath" name="./subsystems/DiscordRPC/src/main/java"></rootPath>
+		<rootPath name="./subsystems/TypeHandlerLibrary/build/classes"></rootPath>
+		<rootPath name="./subsystems/TypeHandlerLibrary/build/classes/java/test"></rootPath>
+		<rootPath xsi:type="ns4:xsdSourceRootPath" name="./subsystems/TypeHandlerLibrary/src/main/java"></rootPath>
+		<rootPath xsi:type="ns4:xsdSourceRootPath" name="./subsystems/TypeHandlerLibrary/src/test/java"></rootPath>
+	</module>
+</ns2:softwareSystem>
